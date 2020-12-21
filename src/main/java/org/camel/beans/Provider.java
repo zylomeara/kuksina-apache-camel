@@ -3,10 +3,29 @@ package org.camel.beans;
 import org.apache.camel.dataformat.bindy.annotation.CsvRecord;
 import org.apache.camel.dataformat.bindy.annotation.DataField;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "provider", schema = "public")
 @CsvRecord(separator = ",", skipFirstLine = true, skipField = true)
 public class Provider {
+    @Id
+    @GeneratedValue
+    long id;
+
     @DataField(pos = 1)
     String accountName;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     @DataField(pos = 2)
     float trafficKB;
