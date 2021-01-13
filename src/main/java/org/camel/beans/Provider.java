@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "provider", schema = "public")
-@CsvRecord(separator = ",", skipFirstLine = true, skipField = true)
+@CsvRecord(separator = ",")
 public class Provider {
     @Id
     @GeneratedValue
